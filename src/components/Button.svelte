@@ -1,9 +1,9 @@
 <script lang="ts">
-  export let home: string;
+  export let text: string;
 </script>
 
 <button class="button">
-  {home}
+  {text}
 </button>
 
 <style>

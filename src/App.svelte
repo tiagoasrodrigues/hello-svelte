@@ -1,31 +1,23 @@
 <script lang="ts">
-  import Button from "./components/Button.svelte";
+  import Calculator from "./components/Calculator.svelte";
 </script>
 
 <main>
-  <Button home="25" />
-  <Button home="05" />
-  <Button home="105" />
+  <Calculator />
 </main>
 
 <style>
+  :global(body) {
+    background-color: #0d0d0d;
+  }
+
+  :root {
+    --background: #555;
+  }
   main {
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
-  }
-
-  h1 {
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 4em;
-    font-weight: 100;
-  }
-
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
 </style>
