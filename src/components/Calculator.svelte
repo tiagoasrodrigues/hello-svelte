@@ -2,34 +2,40 @@
   import Button from "./Button.svelte";
   import Display from "./Display.svelte";
   import Row from "./Row.svelte";
+
+  let value = "";
+
+  function typedNumber(number: string) {
+    value += number;
+  }
 </script>
 
 <div class="calculator">
-  <Display value="123456789102123456789102" />
+  <Display {value} />
   <Row>
     <Button detach triple text="AC" />
     <Button operation text="/" />
   </Row>
   <Row>
-    <Button text="7" />
-    <Button text="8" />
-    <Button text="9" />
+    <Button text="7" onClick={typedNumber} />
+    <Button text="8" onClick={typedNumber} />
+    <Button text="9" onClick={typedNumber} />
     <Button operation text="*" />
   </Row>
   <Row>
-    <Button text="4" />
-    <Button text="5" />
-    <Button text="6" />
+    <Button text="4" onClick={typedNumber} />
+    <Button text="5" onClick={typedNumber} />
+    <Button text="6" onClick={typedNumber} />
     <Button operation text="+" />
   </Row>
   <Row>
-    <Button text="1" />
-    <Button text="2" />
-    <Button text="3" />
+    <Button text="1" onClick={typedNumber} />
+    <Button text="2" onClick={typedNumber} />
+    <Button text="3" onClick={typedNumber} />
     <Button operation text="-" />
   </Row>
   <Row>
-    <Button double text="0" />
+    <Button double text="0" onClick={typedNumber} />
     <Button text="," />
     <Button detach text="=" />
   </Row>

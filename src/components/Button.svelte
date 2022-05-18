@@ -4,9 +4,17 @@
   export let double: boolean = false;
   export let operation: boolean = false;
   export let detach: boolean = false;
+  export let onClick: (value: string) => void = () => {};
 </script>
 
-<button class="button" class:triple class:double class:operation class:detach>
+<button
+  class="button"
+  class:triple
+  class:double
+  class:operation
+  class:detach
+  on:click={() => onClick(text)}
+>
   {text}
 </button>
 
