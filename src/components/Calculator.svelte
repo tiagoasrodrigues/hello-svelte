@@ -5,7 +5,7 @@
 </script>
 
 <div class="calculator">
-  <Display value="125125125125125125125125" />
+  <Display value="123456789102123456789102" />
   <Row>
     <Button detach triple text="AC" />
     <Button operation text="/" />
