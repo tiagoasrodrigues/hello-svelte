@@ -3,15 +3,26 @@
   import Display from "./Display.svelte";
   import Row from "./Row.svelte";
 
-  let value = "";
+  class Model {
+    value: string;
+    constructor(value: string = "0") {
+      this.value = value;
+    }
+
+    inc() {
+      return new Model(`${parseInt(this.value) + 1}`);
+    }
+  }
+
+  let obj = new Model();
 
   function typedNumber(number: string) {
-    value += number;
+    obj = obj.inc();
   }
 </script>
 
 <div class="calculator">
-  <Display {value} />
+  <Display value={obj.value} />
   <Row>
     <Button detach triple text="AC" />
     <Button operation text="/" />
