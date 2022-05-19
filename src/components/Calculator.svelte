@@ -1,28 +1,17 @@
 <script lang="ts">
+  import CalculatorModel from "../model/CalculatorModel";
   import Button from "./Button.svelte";
   import Display from "./Display.svelte";
   import Row from "./Row.svelte";
 
-  class Model {
-    value: string;
-    constructor(value: string = "0") {
-      this.value = value;
-    }
+  let calc = new CalculatorModel();
 
-    inc() {
-      return new Model(`${parseInt(this.value) + 1}`);
-    }
-  }
-
-  let obj = new Model();
-
-  function typedNumber(number: string) {
-    obj = obj.inc();
-  }
+  const typedNumber = (num: string) => (calc = calc.typedNumber(num));
+  const typedPoint = () => (calc = calc.typedPoint());
 </script>
 
 <div class="calculator">
-  <Display value={obj.value} />
+  <Display value={calc.value} />
   <Row>
     <Button detach triple text="AC" />
     <Button operation text="/" />
@@ -47,7 +36,7 @@
   </Row>
   <Row>
     <Button double text="0" onClick={typedNumber} />
-    <Button text="," />
+    <Button text="," onClick={typedPoint} />
     <Button detach text="=" />
   </Row>
 </div>

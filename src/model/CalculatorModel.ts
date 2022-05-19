@@ -25,4 +25,13 @@ export default class CalculatorModel {
       NOT_CLEAR_SCREEN
     )
   }
+
+  typedPoint() {
+    return new CalculatorModel(
+      this.#value?.includes('.') ? this.#value : this.value + '.',
+      this.#accumulator,
+      this.#operation,
+      NOT_CLEAR_SCREEN
+    )
+  }
 }
