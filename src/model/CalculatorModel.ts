@@ -1,4 +1,5 @@
 const NOT_CLEAR_SCREEN = false
+const CLEAR_SCREEN = true
 
 export default class CalculatorModel {
   #value: string
@@ -37,5 +38,23 @@ export default class CalculatorModel {
 
   clean() {
     return new CalculatorModel()
+  }
+
+  typedOperation(nextOperation: string) {
+    return this.calculate(nextOperation)
+  }
+
+  calculate(nextOperation: string = null) {
+    const accumulator = !this.#operation
+      ? parseFloat(this.#value)
+      : eval(`${this.#accumulator} ${this.#operation} ${this.#value}`)
+    const value = !this.#operation ? this.value : `${accumulator}`
+
+    return new CalculatorModel(
+      value,
+      accumulator,
+      nextOperation,
+      nextOperation ? CLEAR_SCREEN : NOT_CLEAR_SCREEN
+    )
   }
 }
