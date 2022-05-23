@@ -34,4 +34,8 @@ export default class CalculatorModel {
       NOT_CLEAR_SCREEN
     )
   }
+
+  clean() {
+    return new CalculatorModel()
+  }
 }

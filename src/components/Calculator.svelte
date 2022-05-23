@@ -8,12 +8,13 @@
 
   const typedNumber = (num: string) => (calc = calc.typedNumber(num));
   const typedPoint = () => (calc = calc.typedPoint());
+  const clean = () => (calc = calc.clean());
 </script>
 
 <div class="calculator">
   <Display value={calc.value} />
   <Row>
-    <Button detach triple text="AC" />
+    <Button detach triple text="AC" onClick={clean} />
     <Button operation text="/" />
   </Row>
   <Row>
